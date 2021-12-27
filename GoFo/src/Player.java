@@ -26,16 +26,19 @@ public class Player {
         PlaygroundOwner playOwner = PlaygroundOwner.findOwnerByEmail(email);
 
         if (playOwner != null){
-            playOwner.eWallet.deposit(PlaygroundOwner.getPlaygroundList(index).getPrice());
+            System.out.println(playOwner.eWallet.deposit(PlaygroundOwner.getPlaygroundList(index).getPrice()));
+        }
+        if (playOwner == null){
+            System.out.println("Not Found!");
         }
 
         PlaygroundOwner.getPlaygroundList(index).bookAPlayground(choice);
 
         if(eWallet.withDraw(PlaygroundOwner.getPlaygroundList(index).getPrice())){
 
-            String infoOfBookedPlayground = PlaygroundOwner.getPlaygroundList(index).getName() +", " +
+            String infoOfBookedPlayground = "\nname Of Playground: "+PlaygroundOwner.getPlaygroundList(index).getName() +", Location: " +
                     PlaygroundOwner.getPlaygroundList(index).getLocation() + ", " +
-                    PlaygroundOwner.getPlaygroundList(index).getOwner() + choice;
+                    PlaygroundOwner.getPlaygroundList(index).getOwner() + "Hour: "+choice + "\n";
 
             bookedPlaygrounds.add(infoOfBookedPlayground);
 

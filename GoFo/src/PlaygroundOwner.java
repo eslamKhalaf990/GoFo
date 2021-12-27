@@ -12,6 +12,7 @@ public class PlaygroundOwner  {
     EWallet eWallet;
     static ArrayList <PlaygroundOwner> ownerList = new ArrayList<>();
     static ArrayList <Object> playgroundList = new ArrayList<>();
+    ArrayList <Playground> hisPlaygroundList = new ArrayList<>();
 
     PlaygroundOwner(String email, String password, String name, String phone, String location, String id, EWallet eWallet){
         this.email = email;
@@ -28,9 +29,10 @@ public class PlaygroundOwner  {
 
         this.playground = playground;
 
-        playground.setOwner(name);
+        playground.setOwner(email);
 
         playgroundList.add(playground);
+        hisPlaygroundList.add(playground);
     }
 
     public static PlaygroundOwner getOwnerList(int index) {
@@ -55,8 +57,12 @@ public class PlaygroundOwner  {
             if (getOwnerList(i).email.equals(email)){
                 return getOwnerList(i);
             }
+            System.out.println(false);
         }
         return null;
+    }
+    public ArrayList <Playground> viewHisPlaygroundList(){
+        return hisPlaygroundList;
     }
 
     @Override

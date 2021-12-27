@@ -16,9 +16,13 @@ public class EWallet {
         }
     }
 
-    void deposit(double amount){
+    boolean deposit(double amount){
         if (amount > 0){
             balance += amount;
+            return true;
+        }
+        else {
+            return false;
         }
     }
 

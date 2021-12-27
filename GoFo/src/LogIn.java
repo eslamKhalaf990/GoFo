@@ -5,18 +5,25 @@ public class LogIn {
     private boolean foundInPlayer;
 
     LogIn(String email, String password) {
-        for(int i=0;i<(Register.getOwnerList().size() + Register.getPlayerList().size()); i++){
-            if (Register.getOwnerList().size()>0 && Register.getOwnerList().get(i).email.equals(email)
+        for(int i=0;i<Register.getOwnerList().size(); i++){
+            if (Register.getOwnerList().get(i).email.equals(email)
                     && Register.getOwnerList().get(i).password.equals(password)){
                 foundInPlayground = true;
                 playgroundOwner = Register.getOwnerList().get(i);
                 break;
             }
-            else if(Register.getPlayerList().size()>0 && Register.getPlayerList().get(i).email.equals(email)
-                    && Register.getPlayerList().get(i).password.equals(password)) {
-                foundInPlayer = true;
-                player = Register.getPlayerList().get(i);
-                break;
+        }
+        if (!foundInPlayground) {
+            for (int i = 0; i < Register.getPlayerList().size(); i++) {
+                if (Register.getPlayerList().get(i).email.equals(email)
+                        && Register.getPlayerList().get(i).password.equals(password)) {
+                    foundInPlayer = true;
+                    player = Register.getPlayerList().get(i);
+                    break;
+                }
+            }
+            if (!foundInPlayer){
+                System.out.println("Not Found!");
             }
         }
     }
