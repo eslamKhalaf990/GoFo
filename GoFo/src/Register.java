@@ -1,22 +1,43 @@
 import java.util.ArrayList;
 
-public class Register{
+public class Register
+{
     static ArrayList <Player> playerList = new <Player>ArrayList <Player>();
     static ArrayList <PlaygroundOwner> ownerList = new <PlaygroundOwner>ArrayList <PlaygroundOwner>();
 
-    Register(PlaygroundOwner owner) {
+    /**
+     * Constructor that takes parameter
+     * @param owner
+     */
+    Register(PlaygroundOwner owner)
+    {
         ownerList.add(owner);
     }
 
-    Register(Player player) {
+    /**
+     * overloaded constructor that takes parameter
+     * @param player
+     */
+    Register(Player player)
+    {
         playerList.add(player);
     }
 
-    static ArrayList <PlaygroundOwner> getOwnerList(){
+    /**
+     * getter for the playground owner list
+     * @return a list of a playground owners
+     */
+    static ArrayList <PlaygroundOwner> getOwnerList()
+    {
         return ownerList;
     }
 
-    static ArrayList <Player> getPlayerList(){
+    /**
+     * getter for the Player list
+     * @return a list of players
+     */
+    static ArrayList <Player> getPlayerList()
+    {
         return playerList;
     }
 }
